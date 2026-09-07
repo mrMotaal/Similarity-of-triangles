@@ -97,11 +97,13 @@
       backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.12);
     }
-    canvas.drawing-area {
-      touch-action: pan-y !important;
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      user-select: none;
+
+    /* إصلاح خاصية اللمس: منع تحريك الصفحة ومنع إيماءات التكبير التلقائية */
+    canvas.drawing-area, #globalWhiteboardCanvas {
+      touch-action: none !important;
+      -webkit-touch-callout: none !important;
+      -webkit-user-select: none !important;
+      user-select: none !important;
       cursor: crosshair;
     }
     .stylus-tool-btn.active {
@@ -222,7 +224,7 @@
             </span>
           </h2>
           <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
-            Master the core postulates of triangle similarity (AA, SSS, SAS) and the Euclidean right-triangle theorems with rigorous analytical proofs and stylus-only workspaces.
+            Master the core postulates of triangle similarity (AA, SSS, SAS) and the Euclidean right-triangle theorems with rigorous analytical proofs and stylus-optimized workspaces.
           </p>
         </div>
       </div>
@@ -478,7 +480,10 @@
                 </span>
                 <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200">
                   <button onclick="setWorkspaceInputMode('canvas-ex-1', 'pen')" id="mode-pen-canvas-ex-1" class="px-3 py-1 rounded-lg text-xs font-bold bg-white text-brand-600 shadow-sm flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen"></i> <span>iPad Stylus</span>
+                    <i class="fa-solid fa-pen"></i> <span>Pen / Stylus</span>
+                  </button>
+                  <button onclick="setWorkspaceInputMode('canvas-ex-1', 'finger')" id="mode-finger-canvas-ex-1" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-hand-pointer"></i> <span>Finger</span>
                   </button>
                   <button onclick="setWorkspaceInputMode('canvas-ex-1', 'text')" id="mode-text-canvas-ex-1" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
                     <i class="fa-solid fa-keyboard"></i> <span>Type</span>
@@ -570,7 +575,10 @@
                 </span>
                 <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200">
                   <button onclick="setWorkspaceInputMode('canvas-ex-2', 'pen')" id="mode-pen-canvas-ex-2" class="px-3 py-1 rounded-lg text-xs font-bold bg-white text-brand-600 shadow-sm flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen"></i> <span>iPad Stylus</span>
+                    <i class="fa-solid fa-pen"></i> <span>Pen / Stylus</span>
+                  </button>
+                  <button onclick="setWorkspaceInputMode('canvas-ex-2', 'finger')" id="mode-finger-canvas-ex-2" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-hand-pointer"></i> <span>Finger</span>
                   </button>
                   <button onclick="setWorkspaceInputMode('canvas-ex-2', 'text')" id="mode-text-canvas-ex-2" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
                     <i class="fa-solid fa-keyboard"></i> <span>Type</span>
@@ -633,7 +641,10 @@
                 </span>
                 <div class="inline-flex rounded-xl bg-white p-1 border border-brand-200 shadow-sm">
                   <button onclick="setWorkspaceInputMode('canvas-try-1', 'pen')" id="mode-pen-canvas-try-1" class="px-3 py-1 rounded-lg text-xs font-bold bg-brand-600 text-white shadow-sm flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen"></i> <span>iPad Stylus</span>
+                    <i class="fa-solid fa-pen"></i> <span>Pen / Stylus</span>
+                  </button>
+                  <button onclick="setWorkspaceInputMode('canvas-try-1', 'finger')" id="mode-finger-canvas-try-1" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-hand-pointer"></i> <span>Finger</span>
                   </button>
                   <button onclick="setWorkspaceInputMode('canvas-try-1', 'text')" id="mode-text-canvas-try-1" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
                     <i class="fa-solid fa-keyboard"></i> <span>Type</span>
@@ -747,7 +758,10 @@
                 </span>
                 <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200">
                   <button onclick="setWorkspaceInputMode('canvas-ex-3', 'pen')" id="mode-pen-canvas-ex-3" class="px-3 py-1 rounded-lg text-xs font-bold bg-white text-brand-600 shadow-sm flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen"></i> <span>iPad Stylus</span>
+                    <i class="fa-solid fa-pen"></i> <span>Pen / Stylus</span>
+                  </button>
+                  <button onclick="setWorkspaceInputMode('canvas-ex-3', 'finger')" id="mode-finger-canvas-ex-3" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-hand-pointer"></i> <span>Finger</span>
                   </button>
                   <button onclick="setWorkspaceInputMode('canvas-ex-3', 'text')" id="mode-text-canvas-ex-3" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
                     <i class="fa-solid fa-keyboard"></i> <span>Type</span>
@@ -831,7 +845,10 @@
                 </span>
                 <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200">
                   <button onclick="setWorkspaceInputMode('canvas-ex-4', 'pen')" id="mode-pen-canvas-ex-4" class="px-3 py-1 rounded-lg text-xs font-bold bg-white text-brand-600 shadow-sm flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen"></i> <span>iPad Stylus</span>
+                    <i class="fa-solid fa-pen"></i> <span>Pen / Stylus</span>
+                  </button>
+                  <button onclick="setWorkspaceInputMode('canvas-ex-4', 'finger')" id="mode-finger-canvas-ex-4" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-hand-pointer"></i> <span>Finger</span>
                   </button>
                   <button onclick="setWorkspaceInputMode('canvas-ex-4', 'text')" id="mode-text-canvas-ex-4" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
                     <i class="fa-solid fa-keyboard"></i> <span>Type</span>
@@ -894,7 +911,10 @@
                 </span>
                 <div class="inline-flex rounded-xl bg-white p-1 border border-teal-200 shadow-sm">
                   <button onclick="setWorkspaceInputMode('canvas-try-2', 'pen')" id="mode-pen-canvas-try-2" class="px-3 py-1 rounded-lg text-xs font-bold bg-teal-600 text-white shadow-sm flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen"></i> <span>iPad Stylus</span>
+                    <i class="fa-solid fa-pen"></i> <span>Pen / Stylus</span>
+                  </button>
+                  <button onclick="setWorkspaceInputMode('canvas-try-2', 'finger')" id="mode-finger-canvas-try-2" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-hand-pointer"></i> <span>Finger</span>
                   </button>
                   <button onclick="setWorkspaceInputMode('canvas-try-2', 'text')" id="mode-text-canvas-try-2" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
                     <i class="fa-solid fa-keyboard"></i> <span>Type</span>
@@ -1004,7 +1024,10 @@
                 </span>
                 <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200">
                   <button onclick="setWorkspaceInputMode('canvas-ex-5', 'pen')" id="mode-pen-canvas-ex-5" class="px-3 py-1 rounded-lg text-xs font-bold bg-white text-brand-600 shadow-sm flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen"></i> <span>iPad Stylus</span>
+                    <i class="fa-solid fa-pen"></i> <span>Pen / Stylus</span>
+                  </button>
+                  <button onclick="setWorkspaceInputMode('canvas-ex-5', 'finger')" id="mode-finger-canvas-ex-5" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-hand-pointer"></i> <span>Finger</span>
                   </button>
                   <button onclick="setWorkspaceInputMode('canvas-ex-5', 'text')" id="mode-text-canvas-ex-5" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
                     <i class="fa-solid fa-keyboard"></i> <span>Type</span>
@@ -1092,7 +1115,10 @@
                 </span>
                 <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200">
                   <button onclick="setWorkspaceInputMode('canvas-ex-6', 'pen')" id="mode-pen-canvas-ex-6" class="px-3 py-1 rounded-lg text-xs font-bold bg-white text-brand-600 shadow-sm flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen"></i> <span>iPad Stylus</span>
+                    <i class="fa-solid fa-pen"></i> <span>Pen / Stylus</span>
+                  </button>
+                  <button onclick="setWorkspaceInputMode('canvas-ex-6', 'finger')" id="mode-finger-canvas-ex-6" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-hand-pointer"></i> <span>Finger</span>
                   </button>
                   <button onclick="setWorkspaceInputMode('canvas-ex-6', 'text')" id="mode-text-canvas-ex-6" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
                     <i class="fa-solid fa-keyboard"></i> <span>Type</span>
@@ -1155,7 +1181,10 @@
                 </span>
                 <div class="inline-flex rounded-xl bg-white p-1 border border-amber-200 shadow-sm">
                   <button onclick="setWorkspaceInputMode('canvas-try-3', 'pen')" id="mode-pen-canvas-try-3" class="px-3 py-1 rounded-lg text-xs font-bold bg-amber-600 text-white shadow-sm flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen"></i> <span>iPad Stylus</span>
+                    <i class="fa-solid fa-pen"></i> <span>Pen / Stylus</span>
+                  </button>
+                  <button onclick="setWorkspaceInputMode('canvas-try-3', 'finger')" id="mode-finger-canvas-try-3" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-hand-pointer"></i> <span>Finger</span>
                   </button>
                   <button onclick="setWorkspaceInputMode('canvas-try-3', 'text')" id="mode-text-canvas-try-3" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
                     <i class="fa-solid fa-keyboard"></i> <span>Type</span>
@@ -1267,7 +1296,10 @@
                 </span>
                 <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200">
                   <button onclick="setWorkspaceInputMode('canvas-ex-7', 'pen')" id="mode-pen-canvas-ex-7" class="px-3 py-1 rounded-lg text-xs font-bold bg-white text-brand-600 shadow-sm flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen"></i> <span>iPad Stylus</span>
+                    <i class="fa-solid fa-pen"></i> <span>Pen / Stylus</span>
+                  </button>
+                  <button onclick="setWorkspaceInputMode('canvas-ex-7', 'finger')" id="mode-finger-canvas-ex-7" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-hand-pointer"></i> <span>Finger</span>
                   </button>
                   <button onclick="setWorkspaceInputMode('canvas-ex-7', 'text')" id="mode-text-canvas-ex-7" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
                     <i class="fa-solid fa-keyboard"></i> <span>Type</span>
@@ -1355,7 +1387,10 @@
                 </span>
                 <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200">
                   <button onclick="setWorkspaceInputMode('canvas-ex-8', 'pen')" id="mode-pen-canvas-ex-8" class="px-3 py-1 rounded-lg text-xs font-bold bg-white text-brand-600 shadow-sm flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen"></i> <span>iPad Stylus</span>
+                    <i class="fa-solid fa-pen"></i> <span>Pen / Stylus</span>
+                  </button>
+                  <button onclick="setWorkspaceInputMode('canvas-ex-8', 'finger')" id="mode-finger-canvas-ex-8" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-hand-pointer"></i> <span>Finger</span>
                   </button>
                   <button onclick="setWorkspaceInputMode('canvas-ex-8', 'text')" id="mode-text-canvas-ex-8" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
                     <i class="fa-solid fa-keyboard"></i> <span>Type</span>
@@ -1418,7 +1453,10 @@
                 </span>
                 <div class="inline-flex rounded-xl bg-white p-1 border border-rose-200 shadow-sm">
                   <button onclick="setWorkspaceInputMode('canvas-try-4', 'pen')" id="mode-pen-canvas-try-4" class="px-3 py-1 rounded-lg text-xs font-bold bg-rose-600 text-white shadow-sm flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen"></i> <span>iPad Stylus</span>
+                    <i class="fa-solid fa-pen"></i> <span>Pen / Stylus</span>
+                  </button>
+                  <button onclick="setWorkspaceInputMode('canvas-try-4', 'finger')" id="mode-finger-canvas-try-4" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-hand-pointer"></i> <span>Finger</span>
                   </button>
                   <button onclick="setWorkspaceInputMode('canvas-try-4', 'text')" id="mode-text-canvas-try-4" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
                     <i class="fa-solid fa-keyboard"></i> <span>Type</span>
@@ -1567,9 +1605,9 @@
         <div>
           <h4 class="text-sm sm:text-base font-bold tracking-tight flex items-center gap-2">
             <span>Infinite Canvas Whiteboard</span>
-            <span class="bg-emerald-500/20 text-emerald-300 text-[10px] px-2 py-0.5 rounded font-mono">Stylus Enabled</span>
+            <span class="bg-emerald-500/20 text-emerald-300 text-[10px] px-2 py-0.5 rounded font-mono">Stylus + Palm Rejection</span>
           </h4>
-          <span class="text-[11px] text-slate-400">Stylus to draw | Touch to scroll and navigate</span>
+          <span class="text-[11px] text-slate-400">Stylus writes without screen shift | 1-Finger pans board</span>
         </div>
       </div>
 
@@ -1675,7 +1713,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // 2. Dynamic Workspace Resizing
+    // 2. Dynamic Workspace Resizing & Input Mode Selection
     function resizeWorkspaceHeight(canvasId, delta) {
       const container = document.getElementById('container-' + canvasId);
       if (!container) return;
@@ -1686,24 +1724,31 @@
     }
 
     function setWorkspaceInputMode(canvasId, mode) {
+      const state = canvasRegistry[canvasId];
       const textEl = document.getElementById('text-' + canvasId);
       const btnPen = document.getElementById('mode-pen-' + canvasId);
+      const btnFinger = document.getElementById('mode-finger-' + canvasId);
       const btnText = document.getElementById('mode-text-' + canvasId);
       if (!textEl || !btnPen || !btnText) return;
+
+      if (state) state.inputMode = mode;
+
+      const baseInactive = "px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition";
+      const baseActive = "px-3 py-1 rounded-lg text-xs font-bold bg-white text-brand-600 shadow-sm flex items-center gap-1.5 transition";
+
+      btnPen.className = (mode === 'pen') ? baseActive : baseInactive;
+      if (btnFinger) btnFinger.className = (mode === 'finger') ? baseActive : baseInactive;
+      btnText.className = (mode === 'text') ? baseActive : baseInactive;
 
       if (mode === 'text') {
         textEl.classList.remove('hidden');
         textEl.focus();
-        btnText.className = "px-3 py-1 rounded-lg text-xs font-bold bg-white text-brand-600 shadow-sm flex items-center gap-1.5 transition";
-        btnPen.className = "px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition";
       } else {
         textEl.classList.add('hidden');
-        btnPen.className = "px-3 py-1 rounded-lg text-xs font-bold bg-white text-brand-600 shadow-sm flex items-center gap-1.5 transition";
-        btnText.className = "px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition";
       }
     }
 
-    // 3. Stylus Engine with Apple Pencil Only Filter
+    // 3. Stylus Engine with Palm Rejection & Dedicated Finger Scroll
     const canvasRegistry = {};
 
     function initStylusCanvas(canvasId) {
@@ -1719,7 +1764,9 @@
         lineWidth: 2.5,
         isEraser: false,
         currentStroke: null,
-        strokes: []
+        strokes: [],
+        inputMode: 'pen', // 'pen' (Stylus only + 100% Palm Rejection), 'finger' (Finger draw), 'text'
+        saveTimer: null
       };
 
       canvasRegistry[canvasId] = state;
@@ -1739,13 +1786,21 @@
       }
 
       function handlePointerDown(e) {
-        // Strict Stylus Check: Block regular finger touch to let page scroll
-        if (e.pointerType === 'touch') return;
+        // إذا كان الوضع مخصصاً للقلم وتم لمس الشاشة بإصبع أو راحة اليد، يتم تجاهلها تماماً لمنع إيقاف القلم
+        if (state.inputMode === 'pen' && e.pointerType === 'touch') {
+          e.preventDefault();
+          return;
+        }
+
+        // منع التداخل: إذا كان القلم يرسم بالفعل، نمنع أي لمس إضافي من تخريب الجلسة
+        if (state.isDrawing) return;
 
         e.preventDefault();
-        try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
+        e.stopPropagation();
+
         state.isDrawing = true;
         state.activePointerId = e.pointerId;
+        try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
 
         const pt = getCoords(e);
         const dynamicWidth = state.isEraser ? 20 : Math.max(1.5, state.lineWidth * (pt.pressure * 1.5 || 1));
@@ -1774,8 +1829,11 @@
       }
 
       function handlePointerMove(e) {
+        // التحقق الدقيق من أن الحدث قادم حصراً من القلم النشط نفسه
         if (!state.isDrawing || e.pointerId !== state.activePointerId || !state.currentStroke) return;
+        
         e.preventDefault();
+        e.stopPropagation();
 
         const pt = getCoords(e);
         const prevPt = state.currentStroke.points[state.currentStroke.points.length - 1];
@@ -1800,10 +1858,36 @@
       }
 
       function handlePointerUp(e) {
-        if (!state.isDrawing) return;
+        // حماية هامة: لا ننهي الرسم إلا إذا كان الحدث صادراً من المؤشر النشط نفسه
+        // هذا يمنع راحة اليد المرفوعة من إلغاء جلسة كتابة القلم
+        if (!state.isDrawing || e.pointerId !== state.activePointerId) return;
+
         state.isDrawing = false;
         state.activePointerId = null;
-        try { canvas.releasePointerCapture(e.pointerId); } catch (err) {}
+
+        try {
+          if (canvas.hasPointerCapture && canvas.hasPointerCapture(e.pointerId)) {
+            canvas.releasePointerCapture(e.pointerId);
+          }
+        } catch (err) {}
+
+        if (state.currentStroke && state.currentStroke.points.length > 0) {
+          state.strokes.push(state.currentStroke);
+          state.currentStroke = null;
+          saveCanvasState(canvasId);
+        }
+      }
+
+      function handlePointerCancel(e) {
+        if (!state.isDrawing || e.pointerId !== state.activePointerId) return;
+        state.isDrawing = false;
+        state.activePointerId = null;
+
+        try {
+          if (canvas.hasPointerCapture && canvas.hasPointerCapture(e.pointerId)) {
+            canvas.releasePointerCapture(e.pointerId);
+          }
+        } catch (err) {}
 
         if (state.currentStroke && state.currentStroke.points.length > 0) {
           state.strokes.push(state.currentStroke);
@@ -1815,7 +1899,20 @@
       canvas.addEventListener('pointerdown', handlePointerDown, { passive: false });
       canvas.addEventListener('pointermove', handlePointerMove, { passive: false });
       canvas.addEventListener('pointerup', handlePointerUp, { passive: false });
-      canvas.addEventListener('pointercancel', handlePointerUp, { passive: false });
+      canvas.addEventListener('pointercancel', handlePointerCancel, { passive: false });
+      
+      // معالجة فقدان الالتقاط بأمان
+      canvas.addEventListener('lostpointercapture', (e) => {
+        if (e.pointerId === state.activePointerId) {
+          handlePointerCancel(e);
+        }
+      });
+
+      // منع متصفح آيباد وسفاري من فتح عدسة التكبير أو التحديد عند الضربات المتتالية السريعة
+      canvas.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+      }, { passive: false });
+      canvas.addEventListener('contextmenu', (e) => e.preventDefault());
 
       syncCanvasResolution(canvasId);
       restoreCanvasText(canvasId);
@@ -1851,10 +1948,9 @@
           state.ctx.lineWidth = 24;
         } else {
           state.ctx.globalCompositeOperation = 'source-over';
-          ctx = state.ctx;
-          ctx.strokeStyle = st.color;
-          ctx.fillStyle = st.color;
-          ctx.lineWidth = st.width || 2.5;
+          state.ctx.strokeStyle = st.color;
+          state.ctx.fillStyle = st.color;
+          state.ctx.lineWidth = st.width || 2.5;
         }
         state.ctx.lineCap = 'round';
         state.ctx.lineJoin = 'round';
@@ -1878,9 +1974,13 @@
     function saveCanvasState(canvasId) {
       const state = canvasRegistry[canvasId];
       if (!state) return;
-      try {
-        localStorage.setItem('stylus_vector_' + canvasId, JSON.stringify(state.strokes));
-      } catch (err) {}
+      // استخدام Debounce لتقليل استهلاك المعالج أثناء الكتابة السريعة
+      clearTimeout(state.saveTimer);
+      state.saveTimer = setTimeout(() => {
+        try {
+          localStorage.setItem('stylus_vector_' + canvasId, JSON.stringify(state.strokes));
+        } catch (err) {}
+      }, 400);
     }
 
     function undoCanvas(canvasId) {
@@ -2221,13 +2321,17 @@
       retakeCurrentQuiz();
     }
 
-    // 7. Fullscreen Whiteboard
+    // 7. Fullscreen Whiteboard with Independent Pan Navigation
     const infiniteState = {
       canvas: null, ctx: null,
       panX: 0, panY: 0, scale: 1,
       strokeColor: '#0284c7', lineWidth: 2.5,
       isEraser: false, isDrawing: false,
-      strokes: [], currentStroke: null
+      activePointerId: null,
+      strokes: [], currentStroke: null,
+      isPanning: false,
+      panStartX: 0, panStartY: 0,
+      saveTimer: null
     };
 
     let whiteboardTimerInterval = null;
@@ -2254,10 +2358,22 @@
       }
 
       canvas.addEventListener('pointerdown', (e) => {
-        if (e.pointerType === 'touch') return;
+        // إصبع اليد يقوم بتحريك السبورة اللانهائية (Pan)
+        if (e.pointerType === 'touch') {
+          infiniteState.isPanning = true;
+          infiniteState.panStartX = e.clientX - infiniteState.panX;
+          infiniteState.panStartY = e.clientY - infiniteState.panY;
+          return;
+        }
+
+        if (infiniteState.isDrawing) return;
+
         e.preventDefault();
-        try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
+        e.stopPropagation();
         infiniteState.isDrawing = true;
+        infiniteState.activePointerId = e.pointerId;
+        try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
+        
         const rect = canvas.getBoundingClientRect();
         const pt = screenToWorld(e.clientX - rect.left, e.clientY - rect.top);
 
@@ -2271,8 +2387,16 @@
       }, { passive: false });
 
       canvas.addEventListener('pointermove', (e) => {
-        if (!infiniteState.isDrawing || !infiniteState.currentStroke) return;
+        if (infiniteState.isPanning && e.pointerType === 'touch') {
+          infiniteState.panX = e.clientX - infiniteState.panStartX;
+          infiniteState.panY = e.clientY - infiniteState.panStartY;
+          renderInfiniteCanvas();
+          return;
+        }
+
+        if (!infiniteState.isDrawing || e.pointerId !== infiniteState.activePointerId || !infiniteState.currentStroke) return;
         e.preventDefault();
+        e.stopPropagation();
         const rect = canvas.getBoundingClientRect();
         const pt = screenToWorld(e.clientX - rect.left, e.clientY - rect.top);
         infiniteState.currentStroke.points.push(pt);
@@ -2280,13 +2404,47 @@
       }, { passive: false });
 
       canvas.addEventListener('pointerup', (e) => {
-        if (infiniteState.isDrawing && infiniteState.currentStroke) {
+        if (infiniteState.isPanning && e.pointerType === 'touch') {
+          infiniteState.isPanning = false;
+          return;
+        }
+        if (!infiniteState.isDrawing || e.pointerId !== infiniteState.activePointerId) return;
+
+        infiniteState.isDrawing = false;
+        infiniteState.activePointerId = null;
+        try {
+          if (canvas.hasPointerCapture && canvas.hasPointerCapture(e.pointerId)) {
+            canvas.releasePointerCapture(e.pointerId);
+          }
+        } catch (err) {}
+
+        if (infiniteState.currentStroke && infiniteState.currentStroke.points.length > 0) {
           infiniteState.strokes.push(infiniteState.currentStroke);
           infiniteState.currentStroke = null;
-          try { localStorage.setItem('infinite_wb_strokes', JSON.stringify(infiniteState.strokes)); } catch (err) {}
+          clearTimeout(infiniteState.saveTimer);
+          infiniteState.saveTimer = setTimeout(() => {
+            try { localStorage.setItem('infinite_wb_strokes', JSON.stringify(infiniteState.strokes)); } catch (err) {}
+          }, 400);
         }
-        infiniteState.isDrawing = false;
       });
+
+      canvas.addEventListener('pointercancel', (e) => {
+        if (!infiniteState.isDrawing || e.pointerId !== infiniteState.activePointerId) return;
+        infiniteState.isDrawing = false;
+        infiniteState.activePointerId = null;
+        try {
+          if (canvas.hasPointerCapture && canvas.hasPointerCapture(e.pointerId)) {
+            canvas.releasePointerCapture(e.pointerId);
+          }
+        } catch (err) {}
+        if (infiniteState.currentStroke && infiniteState.currentStroke.points.length > 0) {
+          infiniteState.strokes.push(infiniteState.currentStroke);
+          infiniteState.currentStroke = null;
+        }
+      });
+
+      canvas.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false });
+      canvas.addEventListener('contextmenu', (e) => e.preventDefault());
 
       renderInfiniteCanvas();
     }
@@ -2398,7 +2556,7 @@
       }
     }
 
-    // 8. Lifecycle
+    // 8. Lifecycle Bootstrap
     window.addEventListener('resize', () => {
       Object.keys(canvasRegistry).forEach(id => syncCanvasResolution(id));
       if (infiniteState.canvas) {
@@ -2411,7 +2569,7 @@
       renderMCQBank();
       renderQuizQuestions();
 
-      // Initialize all 12 workspaces explicitly
+      // تهيئة مساحات العمل
       const allCanvases = [
         'canvas-ex-1', 'canvas-ex-2', 'canvas-try-1',
         'canvas-ex-3', 'canvas-ex-4', 'canvas-try-2',
